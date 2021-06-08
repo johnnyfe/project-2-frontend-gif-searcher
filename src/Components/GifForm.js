@@ -15,7 +15,7 @@ function GifForm({onAddGif , categories, onAddCategory }) {
   }
 
   function handleSubmit(){
-    onAddCategory({currentCategory})
+    
     const newGif = {
     name: formData.name,
       description: formData.description,
@@ -29,16 +29,8 @@ function GifForm({onAddGif , categories, onAddCategory }) {
       body: JSON.stringify(newGif),
     })
     .then(r=>r.json())
-    .then(onAddGif)
+    .then(onAddGif, onAddCategory({currentCategory}))
   }
-
-  function handleClick(e){
-    setCurrentCategory({
-      ...currentCategory,
-      [e.target.name]:e.target.value
-    })
-  }
-  
 
   return (
     <div className="gif-form">
@@ -63,7 +55,9 @@ function GifForm({onAddGif , categories, onAddCategory }) {
             value={formData.image} 
             onChange={handleChange}
           />
-          <select name="category" value={currentCategory} onChange={handleClick}>
+          Category:
+          <br/>
+          <select name="category" value={currentCategory} onChange={(e)=>setCurrentCategory(e.target.value)}>
          {categories.map((cat)=> (
            <option key={cat}>{cat}</option>
          ))}
