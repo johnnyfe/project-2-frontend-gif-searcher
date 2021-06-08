@@ -1,9 +1,14 @@
 import React from "react"
 import { Card } from "semantic-ui-react";
 
-function GifCard({gif}) {
+function GifCard({gif, onDeleteCard}) {
 
 const {id, name, description, image} = gif
+
+function handleDeleteCard(){
+    fetch(`http://localhost:3000/gifs/${id}`, {method:"DELETE"})
+    onDeleteCard(id)
+}
 
   return (
     <Card>
@@ -20,7 +25,7 @@ const {id, name, description, image} = gif
                     {description}
                 </span>
                 <br/>
-                <button>Delete</button>
+                <button onClick={handleDeleteCard}>Delete</button>
             </div>
         
         </div>

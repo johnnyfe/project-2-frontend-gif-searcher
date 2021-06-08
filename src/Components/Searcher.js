@@ -7,10 +7,13 @@ function Searcher({currentSearch, setCurrentSearch}) {
   }
   
 return (
-  <div className="search">
+  <div className="ui search">
     <p>Search By:</p>
-    <input onChange={handleChange} value={currentSearch}></input>
+    <div className="ui icon input">
+      <input className="prompt" onChange={handleChange} value={currentSearch}/>
     <i className="search icon" />
+    </div>
+    
   </div>
 );
 }

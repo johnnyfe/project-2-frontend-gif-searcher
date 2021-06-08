@@ -7,7 +7,7 @@ import { Container } from "semantic-ui-react";
 
 function App() {
   const [gifs, setGifs]= useState([]);
-  const [currentSearch, setCurrentSearch]=useState([]);
+  const [currentSearch, setCurrentSearch]=useState("");
   const [category, setCategory]=useState("ALL")
 
   useEffect(()=>{
@@ -27,6 +27,11 @@ function App() {
     return setGifs(updatedGif)
   }
 
+  function handleDeleteGif(id){
+    const updateGif=gifs.filter((gif)=> gif.id!==id)
+    return setGifs(updateGif)
+  }
+
   
   return (
     <Container>
@@ -36,7 +41,7 @@ function App() {
       <br/>
       <Searcher currentSearch={currentSearch} setCurrentSearch={setCurrentSearch}/>
       <br/>
-      <GifContainer gifs={gifs}/>
+      <GifContainer gifs={gifs} onDeleteCard={handleDeleteGif}/>
     </Container>
   );
 }

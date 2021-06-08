@@ -8,15 +8,13 @@ function Header() {
     <div className="header">
       <div className="container">
       <div className="row">
-      <div className="col-7 align-self-center">
-        <h1>GIFINDER</h1>
-      </div>
-      <div className="col-1 align-self-start">
-        <img src="https://logodix.com/logo/2079450.png" alt="logo-image" />
+      <div className="col align-self-center">
+        <h1>GIFINDER<img src="https://logodix.com/logo/2079450.png" alt="logo-image" /></h1>
       </div>
       </div>
-        
-        <h3>GIF SEARCHER APP</h3>
+      <div className="col text-start">
+        <h5>GIF SEARCHER APP</h5>
+      </div>
       </div>
     </div>
   );
