@@ -27,6 +27,11 @@ function App() {
     return setGifs(updatedGif)
   }
 
+  function handleAddCategory(newCategory){
+    const updatedCategory=([...category,newCategory])
+    return setCategory(updatedCategory)
+  }
+
   function handleDeleteGif(id){
     const updateGif=gifs.filter((gif)=> gif.id!==id)
     return setGifs(updateGif)
@@ -45,7 +50,7 @@ function App() {
     <Container>
       <Header/>
       <br/>
-      <GifForm onAddGif={handleAddGif} categories={category} setCategory={setCategory}/>
+      <GifForm onAddGif={handleAddGif} categories={category} onAddCategory={handleAddCategory}/>
       <br/>
       <Searcher currentSearch={currentSearch} setCurrentSearch={setCurrentSearch}/>
       <br/>
