@@ -45,11 +45,11 @@ function App() {
     <Container>
       <Header/>
       <br/>
-      <GifForm onAddGif={handleAddGif}/>
+      <GifForm onAddGif={handleAddGif} categories={category} setCategory={setCategory}/>
       <br/>
       <Searcher currentSearch={currentSearch} setCurrentSearch={setCurrentSearch}/>
       <br/>
-      <GifContainer gifs={gifDisplayed} onDeleteGif={handleDeleteGif} onUpdatedGif={handleUpdateGif}/>
+      <GifContainer gifs={gifDisplayed}  onDeleteGif={handleDeleteGif} onUpdatedGif={handleUpdateGif}/>
     </Container>
   );
 }

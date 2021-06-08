@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import { Form } from "semantic-ui-react";
 
-function GifForm({onAddGif}) {
+function GifForm({onAddGif , categories, setCategory}) {
 
   const [formData, setFormData]=useState([]);
 
@@ -14,6 +14,7 @@ function GifForm({onAddGif}) {
   }
 
   function handleSubmit(){
+    
     
     const newGif = {
     name: formData.name,
@@ -30,6 +31,7 @@ function GifForm({onAddGif}) {
     .then(r=>r.json())
     .then(onAddGif)
   }
+  
 
   return (
     <div className="gif-form">
@@ -54,6 +56,11 @@ function GifForm({onAddGif}) {
             value={formData.image} 
             onChange={handleChange}
           />
+          <select name="category" value={categories} onChange={(e)=>setCategory(e.target.value)}>
+         {categories.map((cat)=> (
+           <option key={cat}>{cat}</option>
+         ))}
+        </select>
         </Form.Group>
         <Form.Button>Submit</Form.Button>
       </Form>
