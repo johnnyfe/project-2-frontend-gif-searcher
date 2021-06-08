@@ -3,9 +3,11 @@ import Header from "./Header";
 import Searcher from "./Searcher";
 import GifForm from "./GifForm"
 import GifContainer from "./GifContainer";
+import { Container } from "semantic-ui-react";
 
 function App() {
   const [gifs, setGifs]= useState([]);
+  const [currentSearch, setCurrentSearch]=useState([]);
   const [category, setCategory]=useState("ALL")
 
   useEffect(()=>{
@@ -25,13 +27,17 @@ function App() {
     return setGifs(updatedGif)
   }
 
+  
   return (
-    <div className="App">
+    <Container>
       <Header/>
+      <br/>
       <GifForm onAddGif={handleAddGif}/>
-      <Searcher />
+      <br/>
+      <Searcher currentSearch={currentSearch} setCurrentSearch={setCurrentSearch}/>
+      <br/>
       <GifContainer gifs={gifs}/>
-    </div>
+    </Container>
   );
 }
 

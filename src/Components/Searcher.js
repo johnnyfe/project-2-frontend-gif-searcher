@@ -1,11 +1,16 @@
 import React from "react"
 
-function Searcher({categories, onSelectCategory}) {
+function Searcher({currentSearch, setCurrentSearch}) {
 
+  function handleChange(e){
+    setCurrentSearch(e.target.value);
+  }
   
 return (
-  <div className="categories">
-    <h5>Category filters</h5>
+  <div className="search">
+    <p>Search By:</p>
+    <input onChange={handleChange} value={currentSearch}></input>
+    <i className="search icon" />
   </div>
 );
 }
