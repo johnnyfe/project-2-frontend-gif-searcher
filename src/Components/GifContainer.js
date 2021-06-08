@@ -1,11 +1,13 @@
 import React from "react"
+import GifCard from "./GifCard";
 
-function GifContainer() {
-
+function GifContainer({gifs}) {
+  console.log(gifs)
+  const gifCollection=gifs.map((gif)=>(
+    <GifCard key={gif.id} gif={gif}/>
+  ))
   return (
-    <div className="gif-container">
-      <h1>Here is the Container</h1>
-    </div>
+    <div className="gif-container">{gifCollection}</div>
   );
 }
 

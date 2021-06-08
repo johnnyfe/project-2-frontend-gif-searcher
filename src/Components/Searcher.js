@@ -1,12 +1,13 @@
 import React from "react"
 
-function Searcher() {
+function Searcher({categories, onSelectCategory}) {
 
-  return (
-    <div className="Searcher">
-      <h1>Here is the Searcher</h1>
-    </div>
-  );
+  
+return (
+  <div className="categories">
+    <h5>Category filters</h5>
+  </div>
+);
 }
 
 export default Searcher;

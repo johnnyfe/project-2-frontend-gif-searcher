@@ -1,10 +1,14 @@
 import React from "react"
 
-function GifCard() {
+function GifCard({gif}) {
+
+const {id, name, description, image} = gif
 
   return (
     <div className="gif-card">
-      <h1>Here is the Card</h1>
+        <img src={image} alt={name}/>
+        <h2>{name}</h2>
+        <p>{description}</p>
     </div>
   );
 }
