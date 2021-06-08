@@ -6,7 +6,7 @@ function GifCard({gif, onDeleteGif, onUpdatedGif}) {
 
 const {id, name, description, image, likes} = gif
 
-function handleDeleteCard(){
+function handleDeleteGif(){
     fetch(`http://localhost:3000/gifs/${id}`, {method:"DELETE"})
     onDeleteGif(id)
 }
@@ -45,7 +45,7 @@ function handleLikeClick() {
                 </span>
                 <br/>
                 <button onClick={handleLikeClick}>Like</button>
-                <button onClick={handleDeleteCard}>Delete</button>
+                <button onClick={handleDeleteGif}>Delete</button>
             </div>
         </div>
     </Card>

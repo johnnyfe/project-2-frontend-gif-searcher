@@ -27,8 +27,8 @@ function App() {
     return setGifs(updatedGif)
   }
 
-  function handleDeleteGif(deletedGif){
-    const updateGif=gifs.filter((gif)=> gif.id!==deletedGif.id)
+  function handleDeleteGif(id){
+    const updateGif=gifs.filter((gif)=> gif.id!==id)
     return setGifs(updateGif)
   }
 
