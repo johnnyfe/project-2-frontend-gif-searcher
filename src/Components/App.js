@@ -27,9 +27,15 @@ function App() {
     return setGifs(updatedGif)
   }
 
-  function handleDeleteGif(id){
-    const updateGif=gifs.filter((gif)=> gif.id!==id)
+  function handleDeleteGif(deletedGif){
+    const updateGif=gifs.filter((gif)=> gif.id!==deletedGif.id)
     return setGifs(updateGif)
+  }
+
+  function handleUpdateGif(updatedGif){
+    const gifToUpdate=gifs.map((gif)=> 
+    gif.id===updatedGif.id ? updatedGif : gif);
+    return setGifs(gifToUpdate)
   }
 
   
@@ -41,7 +47,7 @@ function App() {
       <br/>
       <Searcher currentSearch={currentSearch} setCurrentSearch={setCurrentSearch}/>
       <br/>
-      <GifContainer gifs={gifs} onDeleteCard={handleDeleteGif}/>
+      <GifContainer gifs={gifs} onDeleteGif={handleDeleteGif} onUpdatedGif={handleUpdateGif}/>
     </Container>
   );
 }
