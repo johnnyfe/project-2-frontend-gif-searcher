@@ -38,6 +38,8 @@ function App() {
     return setGifs(gifToUpdate)
   }
 
+  const gifDisplayed= gifs
+    .filter((gif)=> gif.name.toLowerCase().includes(currentSearch.toLowerCase()));
   
   return (
     <Container>
@@ -47,7 +49,7 @@ function App() {
       <br/>
       <Searcher currentSearch={currentSearch} setCurrentSearch={setCurrentSearch}/>
       <br/>
-      <GifContainer gifs={gifs} onDeleteGif={handleDeleteGif} onUpdatedGif={handleUpdateGif}/>
+      <GifContainer gifs={gifDisplayed} onDeleteGif={handleDeleteGif} onUpdatedGif={handleUpdateGif}/>
     </Container>
   );
 }

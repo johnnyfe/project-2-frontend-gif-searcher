@@ -13,7 +13,6 @@ return (
       <input className="prompt" onChange={handleChange} value={currentSearch}/>
     <i className="search icon" />
     </div>
-    
   </div>
 );
 }
