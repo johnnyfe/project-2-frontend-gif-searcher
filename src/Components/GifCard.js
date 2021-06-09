@@ -4,7 +4,7 @@ import "../Style/Card.css"
 
 function GifCard({gif, onDeleteGif, onUpdatedGif}) {
 
-const {id, name, description, image, likes} = gif
+const {id, name, description, image, likes, category} = gif
 
 function handleDeleteGif(){
     fetch(`http://localhost:3000/gifs/${id}`, {method:"DELETE"})
@@ -14,6 +14,7 @@ function handleDeleteGif(){
 function handleLikeClick() {
     const updatedObj={
         likes:gif.likes+1,
+        category:gif.category
     };
 
     fetch(`http://localhost:3000/gifs/${id}`,  {
@@ -26,8 +27,6 @@ function handleLikeClick() {
       .then(r=>r.json())
       .then(onUpdatedGif)
 }
-
-
 
   return (
     <Card >

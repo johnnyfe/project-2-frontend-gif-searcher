@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import { Form } from "semantic-ui-react";
 
-function GifForm({onAddGif , categories, onAddCategory }) {
+function GifForm({onAddGif , categories }) {
 
   const [formData, setFormData]=useState([]);
   const [currentCategory, setCurrentCategory]=useState([]);
@@ -19,7 +19,7 @@ function GifForm({onAddGif , categories, onAddCategory }) {
     const newGif = {
     name: formData.name,
       description: formData.description,
-      image:formData.image
+      image:formData.image,
   }
     fetch("http://localhost:3000/gifs", {
       method: "POST",
@@ -29,7 +29,7 @@ function GifForm({onAddGif , categories, onAddCategory }) {
       body: JSON.stringify(newGif),
     })
     .then(r=>r.json())
-    .then(onAddGif, onAddCategory({currentCategory}))
+    .then(onAddGif)
   }
 
   return (
@@ -57,11 +57,11 @@ function GifForm({onAddGif , categories, onAddCategory }) {
           />
           Category:
           <br/>
-          <select name="category" value={currentCategory} onChange={(e)=>setCurrentCategory(e.target.value)}>
+          {categories && <select name="category" value={currentCategory} onChange={(e)=>setCurrentCategory(e.target.value)}>
          {categories.map((cat)=> (
            <option key={cat}>{cat}</option>
          ))}
-        </select>
+        </select>}
         </Form.Group>
         <Form.Button>Submit</Form.Button>
       </Form>

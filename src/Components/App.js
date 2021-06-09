@@ -8,7 +8,7 @@ import { Container } from "semantic-ui-react";
 function App() {
   const [gifs, setGifs]= useState([]);
   const [currentSearch, setCurrentSearch]=useState("");
-  const [category, setCategory]=useState("ALL")
+  const [category, setCategory]=useState(null)
 
   useEffect(()=>{
     fetch(`http://localhost:3000/gifs`)
@@ -50,7 +50,7 @@ function App() {
     <Container>
       <Header/>
       <br/>
-      <GifForm onAddGif={handleAddGif} categories={category} onAddCategory={handleAddCategory}/>
+      {category ? <GifForm onAddGif={handleAddGif} categories={category} onAddCategory={handleAddCategory} /> : <div>Loading</div>}
       <br/>
       <Searcher currentSearch={currentSearch} setCurrentSearch={setCurrentSearch}/>
       <br/>
