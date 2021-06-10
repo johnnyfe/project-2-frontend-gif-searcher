@@ -13,8 +13,7 @@ function handleDeleteGif(){
 
 function handleLikeClick() {
     const updatedObj={
-        likes:gif.likes+1,
-        category:gif.category
+        likes:gif.likes+1
     };
 
     fetch(`http://localhost:3000/gifs/${id}`,  {
@@ -41,6 +40,7 @@ function handleLikeClick() {
                 <span >
                     {description}
                     <p>Likes : {likes} </p>
+                    {category}
                 </span>
                 <br/>
                 <button onClick={handleLikeClick}>Like</button>

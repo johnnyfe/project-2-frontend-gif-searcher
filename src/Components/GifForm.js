@@ -20,6 +20,7 @@ function GifForm({onAddGif , categories }) {
     name: formData.name,
       description: formData.description,
       image:formData.image,
+      category:currentCategory,
   }
     fetch("http://localhost:3000/gifs", {
       method: "POST",
