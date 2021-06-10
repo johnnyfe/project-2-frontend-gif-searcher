@@ -9,7 +9,7 @@ function Header() {
       <div className="container">
       <div className="row">
       <div className="col align-self-center">
-        <h1>GIFINDER<img src="https://logodix.com/logo/2079450.png" alt="logo-image" /></h1>
+        <h1>GIFINDER<img src="https://logodix.com/logo/2079450.png" alt="logo" /></h1>
       </div>
       </div>
       <div className="col text-start">

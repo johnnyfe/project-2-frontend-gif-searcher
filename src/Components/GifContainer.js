@@ -10,9 +10,7 @@ function GifContainer({gifs, onDeleteGif, onUpdatedGif}) {
 
   return (
     <div className="gif-container">
-      <Card.Group centered itemsPerRow={4}>
       {gifCollection}
-      </Card.Group>
       </div>
   );
 }

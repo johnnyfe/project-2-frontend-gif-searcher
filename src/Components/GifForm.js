@@ -40,17 +40,17 @@ function GifForm({onAddGif , categories }) {
       <Form.Group widths="equal">
           <Form.Input 
             fluid label="Name" 
-            placeholder="Name" name="name" 
+            placeholder="name" name="name" 
             value={formData.name} 
             onChange={handleChange}/>
           <Form.Input 
-            fluid label="description" 
+            fluid label="Description" 
             placeholder="description" 
             name="description" 
             value={formData.description} 
             onChange={handleChange}/>
           <Form.Input
-            fluid label="image"
+            fluid label="Image"
             placeholder="url"
             name="image"
             value={formData.image} 
@@ -64,6 +64,7 @@ function GifForm({onAddGif , categories }) {
          ))}
         </select>}
         </Form.Group>
+        <br/>
         <Form.Button>Submit</Form.Button>
       </Form>
       
