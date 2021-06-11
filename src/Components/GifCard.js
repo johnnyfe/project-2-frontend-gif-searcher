@@ -1,12 +1,19 @@
 import React, { useState } from "react"
-import { Card } from "semantic-ui-react";
 import "../Style/Card.css"
-import GifUpdateForm from "./GifUpdateForm";
+
 
 function GifCard({gif, onDeleteGif, onUpdatedGif}) {
 
 const {id, name, description, image, likes, category} = gif
-const [showUpdateForm, setShowUpdateForm]=useState(true);
+
+const [editDescription, setEditDescription]=useState(true);
+const [newDescription,setNewDescription]= useState([]);
+
+const [editName, setEditName]=useState(true);
+const [newName,setNewName]= useState([]);
+
+const [updateDescription, setUpdateDescription]=useState(true);
+const [updateName, setUpdateName]= useState(true);
 
 function handleDeleteGif(){
     fetch(`http://localhost:3000/gifs/${id}`, {method:"DELETE"})
@@ -27,7 +34,31 @@ function handleLikeClick() {
       })
       .then(r=>r.json())
       .then(onUpdatedGif)
-}
+    }
+
+    function handleChangeDescription(e){
+    setNewDescription(e.target.value)
+    }
+
+    function toggleEditDescription() {
+    setEditDescription(!editDescription)
+    }
+
+    function handleUpdateDescription(){
+    setUpdateDescription(!updateDescription)
+    }
+
+    function handleChangeName(e){
+    setNewName(e.target.value)
+    }
+
+    function toggleEditName() {
+    setEditName(!editName)
+    }
+    
+    function handleUpdateName(){
+    setUpdateName(!updateName)
+    }
 
   return (
 
@@ -36,13 +67,25 @@ function handleLikeClick() {
                 <img src={image} alt={name}/>
             </div>
             <div className="content">
-                <div className="header">{name}</div>
+                <div className="header">{editName ? 
+                    <p onClick={toggleEditName}>{updateName ? name : newName}</p> : 
+                    <div>
+                        <input name="Name" placeHolder="Name" value={newName} onChange={handleChangeName}/>
+                        <button onClick={toggleEditName}>Toggle Back</button>
+                        <button onClick={handleUpdateName}>Update</button>
+                    </div>}</div>
             </div>
             <div className="extra-content">
                 <span >
-                    {description}
+                    {editDescription ? 
+                    <p onClick={toggleEditDescription}>{updateDescription ? description : newDescription}</p> : 
+                    <div>
+                        <input name="Description" placeHolder="Description" value={newDescription} onChange={handleChangeDescription}/>
+                        <button onClick={toggleEditDescription}>Toggle Back</button>
+                        <button onClick={handleUpdateDescription}>Update</button>
+                    </div>}
                     <p>Likes : {likes}  </p>
-                    <p>Category: <br/>{category} </p>
+                    {category}
                 </span>
             <div className="buttons">
                 <button onClick={handleLikeClick}>Like</button>
