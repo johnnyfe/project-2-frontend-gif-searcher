@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import "../Style/GifForm.css"
 
 function GifForm({onAddGif , categories }) {
 
@@ -35,29 +36,28 @@ function GifForm({onAddGif , categories }) {
 
   return (
     <div className="gif-form">
-      <h5>Add a new GIF</h5>
+      <h3>→ADD A NEW GIF HERE←</h3>
       <form onSubmit={handleSubmit}>
-          Name:<br/>
+      <h4>Name:</h4>
           <input 
             placeholder="name" 
             name="name" 
             value={formData.name} 
             onChange={handleChange}/>
-          <br/>Description:<br/>
+          <h4>Description:</h4>
           <input
-            fluid label="Description" 
             placeholder="description" 
             name="description" 
             value={formData.description} 
             onChange={handleChange}/>
-          <br/>Image:<br/>
+          <h4>Image:</h4>
           <input
             placeholder="url"
             name="image"
             value={formData.image} 
             onChange={handleChange}
           />
-          <br/>Category:<br/>
+          <h4>Category:</h4>
           {categories && <select name="category" value={currentCategory} onChange={(e)=>setCurrentCategory(e.target.value)}>
          {categories.map((cat)=> (
            <option key={cat}>{cat}</option>

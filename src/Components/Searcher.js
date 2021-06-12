@@ -1,7 +1,5 @@
 import React from "react"
 
-
-
 function Searcher({currentSearch, setCurrentSearch}) {
 
   function handleChange(e){
@@ -10,8 +8,9 @@ function Searcher({currentSearch, setCurrentSearch}) {
   
 return (
   <div className="search-bar">
-    <p>Search By:</p>
+    <h4>→FIND A GIF HERE←</h4><br/>
     <div className="search-name">
+      <label><h5>Search Name--  </h5></label>
       <input placeholder="Name" onChange={handleChange} value={currentSearch}/>
     </div>
   </div>

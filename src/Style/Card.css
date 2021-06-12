@@ -8,7 +8,7 @@
     list-style: none;
     flex: 0 0 25%;
 }
-img{
+.card img{
     width: 300px;
     height: auto;
     border: 3px solid white;

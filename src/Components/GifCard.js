@@ -99,7 +99,7 @@ function handleLikeClick() {
 
   return (
 
-        <div className="card">
+        <div className="card" >
             <div className="image">
                 <img src={image} alt={name}/>
             </div>
