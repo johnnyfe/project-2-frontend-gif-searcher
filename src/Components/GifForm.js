@@ -35,7 +35,7 @@ function GifForm({onAddGif , categories }) {
 
   return (
     <div className="gif-form">
-      <h3>Add a new GIF</h3>
+      <h5>Add a new GIF</h5>
       <form onSubmit={handleSubmit}>
           Name:<br/>
           <input 

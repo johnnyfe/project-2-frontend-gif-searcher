@@ -6,15 +6,11 @@ function Header() {
 
   return (
     <div className="header">
-      <div className="container">
-      <div className="row">
-      <div className="col align-self-center">
+      <div className="title">
         <h1>GIFINDER<img src="https://logodix.com/logo/2079450.png" alt="logo" /></h1>
       </div>
-      </div>
-      <div className="col text-start">
-        <h5>GIF SEARCHER APP</h5>
-      </div>
+      <div className="sub-title">
+        <h3>GIF SEARCHER APP</h3>
       </div>
     </div>
   );

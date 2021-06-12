@@ -10,7 +10,7 @@ function GifContainer({gifs, onDeleteGif, onUpdatedGif}) {
 
   return (
     <div className="gif-container">
-      <h5>CLICK NAME OR DESCRIPTION TO EDIT</h5>
+      <h5>CLICK NAME OR DESCRIPTION TO EDIT</h5><br/><br/>
       {gifCollection}
       </div>
   );

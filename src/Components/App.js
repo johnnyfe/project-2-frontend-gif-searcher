@@ -3,7 +3,7 @@ import Header from "./Header";
 import Searcher from "./Searcher";
 import GifForm from "./GifForm"
 import GifContainer from "./GifContainer";
-import { Container } from "semantic-ui-react";
+import "../Style/App.css"
 
 function App() {
   const [gifs, setGifs]= useState([]);
@@ -43,7 +43,7 @@ function App() {
 
   
   return (
-    <Container>
+    <div className="app">
       <Header/>
       <br/>
       {category ? <GifForm onAddGif={handleAddGif} categories={category}/> : <div>Loading</div>}
@@ -51,7 +51,7 @@ function App() {
       <Searcher currentSearch={currentSearch} setCurrentSearch={setCurrentSearch}/>
       <br/>
       <GifContainer gifs={gifDisplayed}  onDeleteGif={handleDeleteGif} onUpdatedGif={handleUpdateGif}/>
-    </Container>
+      </div>
   );
 }
 

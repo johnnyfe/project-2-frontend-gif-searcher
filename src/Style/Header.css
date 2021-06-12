@@ -1,6 +1,36 @@
-.header {
-    text-align: center;
+div{
+    width: 100%;
 }
-img {
+
+.title h1 {
+    text-align: center;
+    color: white;
+    position: relative;
+    animation: titlemove 1s infinite;
+    animation-direction: alternate;
+  }
+  
+  @keyframes titlemove {
+    0%   {background: red; left: 0px; top: 0px;}
+  25%  {background: purple; left: 2px; top: 0px;}
+  50%  {background: blue; left: 2px; top: 2px;}
+  75%  {background: green; left: 0px; top: 2px;}
+  100% {background: red; left: 0px; top: 0px;}
+  }
+
+.title img{
     width: 100px;
+}
+
+.sub-title{
+    color: white;
+    position: relative;
+  animation: subtitlemove 10s infinite;
+  background-position: center;
+  animation-timing-function: linear;
+}
+
+@keyframes subtitlemove {
+  from {left: 0px; }
+  to {left: 100%;}
 }
