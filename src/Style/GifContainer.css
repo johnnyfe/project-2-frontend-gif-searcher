@@ -1,4 +1,14 @@
 .gif-container{
-    display: flex;
-    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    
+}
+.gif-cards{
+    display:flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+.gif-cards :hover{
+    background-color: darkblue;
+    color: white;
 }
