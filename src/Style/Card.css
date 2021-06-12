@@ -1,4 +1,6 @@
 .card{
+    border: 2px solid white;
+    border-radius: 50px 20px;
     align-items: center;
     width: 25%;
     text-align: center;
@@ -9,8 +11,6 @@
 img{
     width: 300px;
     height: auto;
-}
-.card :hover{
-    background-color: darkcyan;
-    color: black;
+    border: 3px solid white;
+    border-radius: 20px;
 }

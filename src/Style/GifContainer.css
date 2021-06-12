@@ -1,9 +1,9 @@
+
 .gif-container{
     justify-content: center;
     text-align: center;
-    
 }
-.gif-cards{
+.gif-cards {
     display:flex;
     flex-wrap: wrap;
     padding-left: 0;
