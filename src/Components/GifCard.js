@@ -22,7 +22,9 @@ function handleDeleteGif(){
 
 function handleLikeClick() {
     const updatedObj={
-        likes:gif.likes+1
+        likes:gif.likes+1,
+        description:newDescription,
+        name: newName,
     };
 
     fetch(`http://localhost:3000/gifs/${id}`,  {
@@ -80,8 +82,10 @@ function handleLikeClick() {
                     {editDescription ? 
                     <p onClick={toggleEditDescription}>{updateDescription ? description : newDescription}</p> : 
                     <div>
-                        <input name="Description" placeHolder="Description" value={newDescription} onChange={handleChangeDescription}/>
+                        <textarea name="Description" placeHolder="Description" value={newDescription} onChange={handleChangeDescription}/>
+                        <br/>
                         <button onClick={toggleEditDescription}>Toggle Back</button>
+                        <br/>
                         <button onClick={handleUpdateDescription}>Update</button>
                     </div>}
                     <p>Likes : {likes}  </p>
