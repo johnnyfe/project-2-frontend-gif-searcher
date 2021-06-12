@@ -1,15 +1,12 @@
 .card{
     align-items: center;
+    align-self: center;
+    width: 25%;
+    text-align: center;
+    flex: auto;
+    flex-direction: column;
 }
-.image{
-    align-items: center;
-}
-.content{
-    align-items: center;
-}
-.extra-content{
-    align-items: center;
-}
-.buttons{
-    align-items: center;
+img{
+    width: 300px;
+    height: auto;
 }

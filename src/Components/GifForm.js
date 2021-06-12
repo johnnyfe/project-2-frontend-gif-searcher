@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import { Form } from "semantic-ui-react";
 
 function GifForm({onAddGif , categories }) {
 
@@ -15,13 +14,13 @@ function GifForm({onAddGif , categories }) {
   }
 
   function handleSubmit(){
-    
-    const newGif = {
-    name: formData.name,
+      const newGif = {
+      name: formData.name,
       description: formData.description,
       image:formData.image,
       category:currentCategory,
-  }
+      }
+      
     fetch("http://localhost:3000/gifs", {
       method: "POST",
       headers: {
@@ -31,42 +30,42 @@ function GifForm({onAddGif , categories }) {
     })
     .then(r=>r.json())
     .then(onAddGif)
+
   }
 
   return (
     <div className="gif-form">
       <h3>Add a new GIF</h3>
-      <Form onSubmit={handleSubmit}>
-      <Form.Group widths="equal">
-          <Form.Input 
-            fluid label="Name" 
-            placeholder="name" name="name" 
+      <form onSubmit={handleSubmit}>
+          Name:<br/>
+          <input 
+            placeholder="name" 
+            name="name" 
             value={formData.name} 
             onChange={handleChange}/>
-          <Form.Input 
+          <br/>Description:<br/>
+          <input
             fluid label="Description" 
             placeholder="description" 
             name="description" 
             value={formData.description} 
             onChange={handleChange}/>
-          <Form.Input
-            fluid label="Image"
+          <br/>Image:<br/>
+          <input
             placeholder="url"
             name="image"
             value={formData.image} 
             onChange={handleChange}
           />
-          Category:
-          <br/>
+          <br/>Category:<br/>
           {categories && <select name="category" value={currentCategory} onChange={(e)=>setCurrentCategory(e.target.value)}>
          {categories.map((cat)=> (
            <option key={cat}>{cat}</option>
          ))}
         </select>}
-        </Form.Group>
-        <br/>
-        <Form.Button>Submit</Form.Button>
-      </Form>
+        <br/><br/>
+        <button type="submit">Submit</button>
+      </form>
       
     </div>
   );

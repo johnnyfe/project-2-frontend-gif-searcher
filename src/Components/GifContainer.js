@@ -1,6 +1,6 @@
 import React from "react"
 import GifCard from "./GifCard";
-import { Card } from "semantic-ui-react";
+import "../Style/GifContainer.css"
 
 function GifContainer({gifs, onDeleteGif, onUpdatedGif}) {
   
@@ -10,6 +10,7 @@ function GifContainer({gifs, onDeleteGif, onUpdatedGif}) {
 
   return (
     <div className="gif-container">
+      <h5>CLICK NAME OR DESCRIPTION TO EDIT</h5>
       {gifCollection}
       </div>
   );

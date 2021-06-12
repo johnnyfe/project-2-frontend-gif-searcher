@@ -4,16 +4,18 @@ import "../Style/Card.css"
 
 function GifCard({gif, onDeleteGif, onUpdatedGif}) {
 
-const {id, name, description, image, likes, category} = gif
+const {id, name, description, image, likes=0, category} = gif
 
 const [editDescription, setEditDescription]=useState(true);
 const [newDescription,setNewDescription]= useState([]);
+const [updateDescription, setUpdateDescription]=useState(true);
+
 
 const [editName, setEditName]=useState(true);
 const [newName,setNewName]= useState([]);
-
-const [updateDescription, setUpdateDescription]=useState(true);
 const [updateName, setUpdateName]= useState(true);
+
+
 
 function handleDeleteGif(){
     fetch(`http://localhost:3000/gifs/${id}`, {method:"DELETE"})
@@ -23,8 +25,6 @@ function handleDeleteGif(){
 function handleLikeClick() {
     const updatedObj={
         likes:gif.likes+1,
-        description:newDescription,
-        name: newName,
     };
 
     fetch(`http://localhost:3000/gifs/${id}`,  {
@@ -47,7 +47,24 @@ function handleLikeClick() {
     }
 
     function handleUpdateDescription(){
+    if(newDescription.length!==0){
     setUpdateDescription(!updateDescription)
+    } else {
+        return setUpdateDescription(updateDescription)
+    }
+    const updatedObj={
+        description:newDescription,
+    };
+
+    fetch(`http://localhost:3000/gifs/${id}`,  {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedObj),
+      })
+      .then(r=>r.json())
+      .then(onUpdatedGif)
     }
 
     function handleChangeName(e){
@@ -59,7 +76,25 @@ function handleLikeClick() {
     }
     
     function handleUpdateName(){
+    if(newName.length!==0){
     setUpdateName(!updateName)
+    } else {
+        return setUpdateName(updateName)
+    }
+    const updatedObj={
+        name:newName,
+    };
+
+    fetch(`http://localhost:3000/gifs/${id}`,  {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedObj),
+      })
+      .then(r=>r.json())
+      .then(onUpdatedGif)
+
     }
 
   return (
@@ -100,5 +135,6 @@ function handleLikeClick() {
         </div>
   )
 }
+
 
 export default GifCard;

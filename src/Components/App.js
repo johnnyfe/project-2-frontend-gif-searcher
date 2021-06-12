@@ -40,6 +40,7 @@ function App() {
 
   const gifDisplayed= gifs
     .filter((gif)=> gif.name.toLowerCase().includes(currentSearch.toLowerCase()));
+
   
   return (
     <Container>
