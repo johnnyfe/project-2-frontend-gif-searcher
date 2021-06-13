@@ -18,7 +18,7 @@ const [updateName, setUpdateName]= useState(true);
 
 
 function handleDeleteGif(){
-    fetch(`http://localhost:3000/gifs/${id}`, {method:"DELETE"})
+    fetch(`https://project-2-backend-gifinder.herokuapp.com/gifs/${id}`, {method:"DELETE"})
     onDeleteGif(id)
 }
 
@@ -27,7 +27,7 @@ function handleLikeClick() {
         likes:gif.likes+1,
     };
 
-    fetch(`http://localhost:3000/gifs/${id}`,  {
+    fetch(`https://project-2-backend-gifinder.herokuapp.com/gifs/${id}`,  {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +56,7 @@ function handleLikeClick() {
         description:newDescription,
     };
 
-    fetch(`http://localhost:3000/gifs/${id}`,  {
+    fetch(`https://project-2-backend-gifinder.herokuapp.com/gifs/${id}`,  {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
