@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import "../Style/Searcher.css"
 
 function Searcher({currentSearch, setCurrentSearch}) {
 

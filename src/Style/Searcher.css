@@ -1,0 +1,8 @@
+.search-name input {
+    width: auto;
+    background-color: rebeccapurple;
+    color:white;
+}
+.search-name ::placeholder{
+        color: whitesmoke;
+}

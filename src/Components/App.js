@@ -8,7 +8,7 @@ import "../Style/App.css"
 function App() {
   const [gifs, setGifs]= useState([]);
   const [currentSearch, setCurrentSearch]=useState("");
-  const [category, setCategory]=useState(null)
+  const [category, setCategory]=useState(null);
 
   useEffect(()=>{
     fetch(`https://project-2-backend-gifinder.herokuapp.com/gifs`)
@@ -39,9 +39,8 @@ function App() {
   }
 
   const gifDisplayed= gifs
-    .filter((gif)=> gif.name.toLowerCase().includes(currentSearch.toLowerCase()));
+    .filter((gif)=> gif.name.toLowerCase().includes(currentSearch.toLowerCase()))
 
-  
   return (
     <div className="app">
       <Header/>
