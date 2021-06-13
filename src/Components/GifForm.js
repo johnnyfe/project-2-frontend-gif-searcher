@@ -22,7 +22,7 @@ function GifForm({onAddGif , categories }) {
       category:currentCategory,
       }
       
-    fetch("http://localhost:3000/gifs", {
+    fetch("https://project-2-backend-gifinder.herokuapp.com/gifs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

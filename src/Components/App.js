@@ -11,13 +11,13 @@ function App() {
   const [category, setCategory]=useState(null)
 
   useEffect(()=>{
-    fetch(`http://localhost:3000/gifs`)
+    fetch(`https://project-2-backend-gifinder.herokuapp.com/gifs`)
     .then(r=>r.json())
     .then(setGifs)
   },[])
 
   useEffect(()=>{
-    fetch(`http://localhost:3000/categories`)
+    fetch(`https://project-2-backend-gifinder.herokuapp.com/categories`)
     .then(r=>r.json())
     .then(setCategory)
   },[])

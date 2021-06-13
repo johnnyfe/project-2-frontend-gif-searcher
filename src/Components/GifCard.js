@@ -85,7 +85,7 @@ function handleLikeClick() {
         name:newName,
     };
 
-    fetch(`http://localhost:3000/gifs/${id}`,  {
+    fetch(`https://project-2-backend-gifinder.herokuapp.com/gifs/${id}`,  {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
